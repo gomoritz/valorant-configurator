@@ -11,7 +11,14 @@ object Keyboard {
         robot.keyRelease(keycode)
     }
 
-    fun type(keycode: Int) = press(keycode).release(keycode)
+    fun type(keycode: Int): Keyboard = apply {
+        press(keycode).release(keycode)
+
+        if (keycode == KeyEvent.VK_CAPS_LOCK) {
+            Thread.sleep(100)
+            press(keycode).release(keycode)
+        }
+    }
 
     fun typeFloatingPoint(value: Double) = apply {
         val string = value.toString()
