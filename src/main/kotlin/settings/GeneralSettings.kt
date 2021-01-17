@@ -39,8 +39,10 @@ fun writeGeneralSettings(file: File) = "Write general settings" {
             is DropdownOptionElement -> element.writeValue(x, y, value.intValue())
             is SwitchOptionElement -> element.writeValue(x, y, value.booleanValue())
             is TripleOptionElement -> element.writeValue(x, y, value.intValue())
+            is QuadrupleOptionElement -> element.writeValue(x, y, value.intValue())
             is KeybindOptionElement -> element.writeValue(x, y, mapper.treeToValue<Keybind>(value)!!)
             is SingleKeybindOptionElement -> element.writeValue(x, y, value.takeIf { it?.isNull == false }?.textValue())
+            is FieldOptionElement -> element.writeValue(x, y, value.doubleValue())
         }
     }.start()
 }
