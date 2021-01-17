@@ -8,10 +8,17 @@ import logging.invoke
 import ocr.tesseract
 
 typealias ElementAction = (element: OptionElement<*>, x: Int, y: Int) -> Unit
+typealias SectionHandler = (element: SectionElement) -> Unit
+typealias CategoryHandler = (category: Category) -> Unit
+typealias TabHandler = (tab: Tab) -> Unit
 
 const val DISTANCE_PER_SCROLL = 100
 
 class SettingsTraverser(private val action: ElementAction) {
+
+    private var sectionHandler: SectionHandler? = null
+    private var categoryHandler: CategoryHandler? = null
+    private var tabHandler: TabHandler? = null
 
     fun start() {
         "Open settings" {
@@ -31,6 +38,7 @@ class SettingsTraverser(private val action: ElementAction) {
 
             for (category in categories) {
                 category.select()
+                categoryHandler?.invoke(category)
 
                 if (category is SimpleCategory) {
                     "Traverse elements in category <${category.name}>" {
@@ -46,6 +54,7 @@ class SettingsTraverser(private val action: ElementAction) {
     private fun traverseTabs(category: TabbedCategory, tabs: List<Tab>) = "Traverse tabs in category <${category.name}>" {
         tabs.forEach { tab ->
             tab.select()
+            tabHandler?.invoke(tab)
             "Traverse elements in tab <${tab.name}>" {
                 traverseElements(category, tab.elements)
             }
@@ -80,6 +89,8 @@ class SettingsTraverser(private val action: ElementAction) {
                 Display.highlightElement(ElementPosition(elementX, elementY - scrollOffset, element.height, element.width))
                 action(element, elementX, elementY - scrollOffset)
                 Display.highlightElement(null)
+            } else if (element is SectionElement) {
+                sectionHandler?.invoke(element)
             }
 
             elementY += element.height
@@ -91,4 +102,16 @@ class SettingsTraverser(private val action: ElementAction) {
     private fun scrollDown() = takeMouse()
         .move(takeScreen().width / 2, 400)
         .wheel(1)
+
+    fun handleSection(handler: SectionHandler) = apply {
+        sectionHandler = handler
+    }
+
+    fun handleCategory(handler: CategoryHandler) = apply {
+        categoryHandler = handler
+    }
+
+    fun handleTab(handler: TabHandler) = apply {
+        tabHandler = handler
+    }
 }
