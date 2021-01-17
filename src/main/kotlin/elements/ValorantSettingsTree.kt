@@ -123,7 +123,9 @@ object ValorantSettingsTree {
                     keybind("Social Radio Commands Wheel"),
                     keybind("Strategy Radio Commands Wheel"),
                 )),
-                Tab(name = "Interface", buttonX = 1235, elements = listOf()),
+                Tab(name = "Interface", buttonX = 1235, elements = listOf(
+                    section("General", height = 49),
+                )),
             )
         )
     )
