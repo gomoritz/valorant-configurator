@@ -4,13 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.treeToValue
-import display.Display
-import display.ElementPosition
 import elements.*
-import interaction.takeMouse
-import interaction.takeScreen
 import logging.invoke
-import ocr.*
 import java.io.File
 
 private val mapper = jacksonObjectMapper().apply {
@@ -51,7 +46,7 @@ fun writeGeneralSettings(file: File) = "Write general settings" {
 }
 
 private fun String.toCamelCase(): String {
-    val onlyValidCharacters = replace(":", "").replace("(", "").replace(")", "").replace("/", " ").replace("-", " ")
+    val onlyValidCharacters = replaceMultiple(":", "(", ")", "[", "]", with = "").replaceMultiple("/", "-", with = " ")
     val charArray = onlyValidCharacters.toLowerCase().toCharArray()
 
     for ((index, char) in charArray.withIndex()) {
@@ -61,4 +56,10 @@ private fun String.toCamelCase(): String {
     }
 
     return String(charArray).replace(" ", "")
+}
+
+private fun String.replaceMultiple(vararg values: String, with: String): String {
+    var result = this
+    for (oldValue in values) result = result.replace(oldValue, with)
+    return result
 }
