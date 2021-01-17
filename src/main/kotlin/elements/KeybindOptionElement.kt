@@ -77,13 +77,14 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
             var text = image.readText()
             if (text == "-") return null
 
-            if (text.startsWith("F")) {
+            if (text.toUpperCase().startsWith("F")) {
                 tesseract.setTessVariable("tessedit_char_whitelist", "F0123456789")
                 val rescannedText = increaseCharacterDistance(image).debugFile("f-rescan").readText()
                 tesseract.setTessVariable("tessedit_char_whitelist", DEFAULT_CHAR_WHITELIST)
 
                 if (rescannedText.length == 2 && rescannedText[0] == 'F') {
                     Logger.debug("Performed F-rescan on $text and got $rescannedText")
+                    text = rescannedText
                 }
             }
 
