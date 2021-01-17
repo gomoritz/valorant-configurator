@@ -14,10 +14,10 @@ class DropdownOptionElement(name: String) : OptionElement<Int>(name) {
     override fun readValue(x: Int, y: Int): Int {
         val valueX = x + width - DROPDOWN_VALUE_WIDTH
 
-        takeMouse().move(valueX + 1, y + 1).click()
+        takeMouse().move(valueX + DROPDOWN_VALUE_WIDTH / 2, y + height / 2).click()
         val capture = takeScreen().capture(valueX, y, DROPDOWN_TEXT_WIDTH, height + READABLE_DROPDOWN_ITEMS * DROPDOWN_ITEM_HEIGHT)
 
-        for (i in 0..READABLE_DROPDOWN_ITEMS) {
+        for (i in 0 until READABLE_DROPDOWN_ITEMS) {
             val itemY = height + (i * DROPDOWN_ITEM_HEIGHT)
             val color = Color(capture.getRGB(DROPDOWN_TEXT_WIDTH - 1, itemY + 1), true)
 
