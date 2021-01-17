@@ -4,10 +4,9 @@ import interaction.*
 import logging.Logger
 import ocr.*
 import settings.KeybindTranslator
-import java.awt.Color
-import java.awt.Image
-import java.awt.event.KeyEvent
+import java.awt.*
 import java.awt.image.BufferedImage
+
 
 const val KEYBIND_VALUE_WIDTH = 232
 const val KEYBIND_VALUE_GAP = 4
@@ -90,10 +89,13 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
 
             if (text.length == 1 && text[0].isLowerCase()) {
                 tesseract.setTessVariable("tessedit_char_whitelist", SINGLE_CHAR_WHITELIST)
-                text = image.readText().also {
-                    Logger.debug("Performed lowercase-rescan for $text and got $it")
-                }
+                tesseract.setPageSegMode(10)
+                val rescannedText = scaleForSingleCharacter(image).readText()[0].toString()
                 tesseract.setTessVariable("tessedit_char_whitelist", DEFAULT_CHAR_WHITELIST)
+                tesseract.setPageSegMode(7)
+
+                Logger.debug("Performed single-lowercase-rescan for $text and got $rescannedText")
+                text = rescannedText
             }
 
             return text.takeUnless { it == "-" }?.toLowerCase()
@@ -137,6 +139,29 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
 
             g.dispose()
             return new
+        }
+
+        private fun scaleForSingleCharacter(image: BufferedImage): BufferedImage {
+            val width = 30
+            val subimage = image.getSubimage(image.width / 2 - width / 2, 0, width, image.height)
+
+            val targetWidth = (subimage.width * 2.5).toInt()
+            val targetHeight = (subimage.height * 2.1).toInt()
+
+            val resizedImage = BufferedImage(targetWidth, targetHeight, BufferedImage.TYPE_INT_RGB)
+            val graphics2D = resizedImage.createGraphics()
+            graphics2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+            graphics2D.drawImage(subimage, 0, 0, targetWidth, targetHeight, null)
+            graphics2D.dispose()
+            return resizedImage
+        }
+
+        private fun scaleForSingleCharacter2(image: BufferedImage): BufferedImage {
+            val width = 30
+            val subimage = image.getSubimage(image.width / 2 - width / 2, 0, width, image.height)
+            val scaled = subimage.getScaledInstance((subimage.width * 2.5).toInt(), (subimage.height * 2.1).toInt(), Image.SCALE_SMOOTH)
+
+            return scaled.toBufferedImage()
         }
     }
 }
