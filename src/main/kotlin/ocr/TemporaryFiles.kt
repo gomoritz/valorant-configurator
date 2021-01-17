@@ -29,7 +29,7 @@ fun <T> BufferedImage.useTemporaryFile(action: (File) -> T): T {
 
 fun BufferedImage.debugFile(label: String, replacePrevious: Boolean = true) = apply {
     val fileName = if (!replacePrevious) {
-        val uuid = UUID.randomUUID().toString()
+        val uuid = UUID.randomUUID().toString().take(6)
         "${label}__$uuid.png"
     } else {
         "$label.png"
