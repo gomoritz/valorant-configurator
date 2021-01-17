@@ -3,7 +3,7 @@ package interaction
 import java.awt.Robot
 
 val robot = Robot().apply {
-    autoDelay = 15
+    autoDelay = 10
 }
 
 fun takeMouse() = Mouse
