@@ -42,9 +42,6 @@ object KeybindTranslator {
         "caps lock" -> VK_CAPS_LOCK
         "tab" -> VK_TAB
         "period" -> VK_PERIOD
-        "equals" -> VK_EQUALS
-        "right bracket" -> VK_CLOSE_BRACKET
-        "left bracket" -> VK_OPEN_BRACKET
         else -> null
     }
 
@@ -65,7 +62,7 @@ object KeybindTranslator {
 
     private fun String.parseNumKey(): Int? = kotlin.runCatching {
         if (this.startsWith("num ") && length == 5)
-            return this[4].toInt()
+            return this[4].toString().toInt()
         return null
     }.getOrNull()
 }
