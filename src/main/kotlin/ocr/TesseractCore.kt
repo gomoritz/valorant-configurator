@@ -1,6 +1,5 @@
 package ocr
 
-import logging.Logger
 import net.sourceforge.tess4j.Tesseract
 import java.awt.image.BufferedImage
 import java.awt.Image
@@ -17,7 +16,6 @@ val tesseract: Tesseract = Tesseract().apply {
 fun BufferedImage.makeTextReadable() = invert().blackWhite()
 
 fun BufferedImage.readText(): String {
-    Logger.debug("Performing OCR on buffered image")
     return tesseract.doOCR(this).removeSuffix("\n")
 }
 
