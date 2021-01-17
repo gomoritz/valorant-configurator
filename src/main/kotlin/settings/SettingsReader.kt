@@ -3,6 +3,8 @@ package settings
 import com.fasterxml.jackson.databind.node.ObjectNode
 import elements.*
 import logging.invoke
+import util.mapper
+import util.toCamelCase
 import java.io.File
 
 fun readSettings(file: File) = "Read general settings" {
