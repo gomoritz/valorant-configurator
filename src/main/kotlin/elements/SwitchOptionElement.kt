@@ -15,20 +15,20 @@ class SwitchOptionElement(name: String) : OptionElement<Boolean>(name) {
         val colorTrue = Color(capture.getRGB(1, 1), true)
         val colorFalse = Color(capture.getRGB(SWITCH_VALUE_WIDTH + SWITCH_VALUE_GAP + 1, 1), true)
 
-        return colorTrue.compareBrightness(colorFalse) > 0
+        return colorTrue.isBrighter(colorFalse)
     }
 
     override fun writeValue(x: Int, y: Int, value: Boolean) {
         val valueX = x + width - (SWITCH_VALUE_WIDTH * 2) + SWITCH_VALUE_GAP
         val targetX = if (value) valueX + 1 else valueX + SWITCH_VALUE_WIDTH + SWITCH_VALUE_GAP + 1
 
-        takeMouse().move(targetX, y + 1).click()
+        takeMouse().move(targetX + (SWITCH_VALUE_WIDTH / 2), y + height / 2).click()
     }
 }
 
-private fun Color.compareBrightness(that: Color): Int {
+fun Color.isBrighter(that: Color): Boolean {
     val avgThis = (red + green + blue) / 3
     val avgThat = (that.red + that.green + that.blue) / 3
 
-    return avgThis.compareTo(avgThat)
+    return avgThis > avgThat
 }

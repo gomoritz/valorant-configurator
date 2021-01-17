@@ -20,7 +20,7 @@ class SingleKeybindOptionElement(name: String) : OptionElement<String?>(name) {
     override fun writeValue(x: Int, y: Int, value: String?) {
         val valueX = x + width - SINGLE_KEYBIND_VALUE_WIDTH
 
-        takeMouse().move(valueX + (SINGLE_KEYBIND_VALUE_WIDTH / 2), y + 15).click()
+        takeMouse().move(valueX + (SINGLE_KEYBIND_VALUE_WIDTH / 2), y + (height / 2)).click()
         if (value != null) {
             if (!KeybindOptionElement.produceInput(value)) Logger.error("Failed to set single keybind for <$name>")
         } else {
