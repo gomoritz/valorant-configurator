@@ -155,14 +155,6 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
             graphics2D.dispose()
             return resizedImage
         }
-
-        private fun scaleForSingleCharacter2(image: BufferedImage): BufferedImage {
-            val width = 30
-            val subimage = image.getSubimage(image.width / 2 - width / 2, 0, width, image.height)
-            val scaled = subimage.getScaledInstance((subimage.width * 2.5).toInt(), (subimage.height * 2.1).toInt(), Image.SCALE_SMOOTH)
-
-            return scaled.toBufferedImage()
-        }
     }
 }
 
