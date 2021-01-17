@@ -89,6 +89,6 @@ class SettingsTraverser(private val action: ElementAction) {
     }
 
     private fun scrollDown() = takeMouse()
-        .move(takeScreen().width / 2, 150)
+        .move(takeScreen().width / 2, 400)
         .wheel(1)
 }
