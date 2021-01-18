@@ -11,7 +11,7 @@ import kotlin.math.roundToInt
 const val UNLABELLED_SLIDER_START = 13
 const val UNLABELLED_SLIDER_Y = 23
 
-class UnlabelledSlider(name: String, private val canToggle: Boolean) : OptionElement<Double>(name) {
+class UnlabelledSliderOptionElement(name: String, val canToggle: Boolean = true) : OptionElement<Double>(name) {
 
     val sliderWidth = if (canToggle) 402 else 455
 
