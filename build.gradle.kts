@@ -15,6 +15,7 @@ dependencies {
     implementation("net.sourceforge.tess4j:tess4j:4.5.4")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.11.3")
     implementation("com.fasterxml.jackson.core:jackson-core:2.11.3")
+    implementation("org.jdom:jdom:2.0.0")
 }
 
 tasks.withType<KotlinCompile>() {
