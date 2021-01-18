@@ -1,7 +1,7 @@
 package elements
 
 object ValorantSettingsTree {
-    val categories = listOf(
+    val categories = listOf<Category>(
         SimpleCategory(
             name = "General",
             buttonX = 720,
@@ -266,6 +266,26 @@ object ValorantSettingsTree {
                     quadruple("Render Latency"),
                 ))
             )
+        ),
+        TabbedCategory(
+            name = "Audio",
+            buttonX = 1200,
+            startY = 132,
+            windowHeight = 797,
+            tabs = listOf(
+                Tab(name = "Sounds", buttonX = 790, elementWidth = 1000, elements = listOf(
+                    toggleSlider("Master Volume"),
+                    toggleSlider("Sound Effects Volume"),
+                    toggleSlider("Voice-over Volume"),
+                    toggleSlider("Video Volume"),
+                    toggleSlider("All Music Master Volume"),
+                    toggleSlider("Menu And Lobby Music Volume"),
+                    toggleSlider("Agent Select Music Volume"),
+                    checkbox("VOIP Ducks Music"),
+                    checkbox("Mute Music When Game Window Out Of Focus"),
+                    dropdown("Speaker Configuration")
+                ))
+            )
         )
     )
 }
@@ -281,3 +301,5 @@ private fun quadruple(name: String) = QuadrupleOptionElement(name)
 private fun keybind(name: String) = KeybindOptionElement(name)
 private fun singleKeybind(name: String) = SingleKeybindOptionElement(name)
 private fun field(name: String) = FieldOptionElement(name)
+private fun toggleSlider(name: String) = ToggleSliderElement(name)
+private fun checkbox(name: String) = CheckboxElement(name)
