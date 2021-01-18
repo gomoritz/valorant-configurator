@@ -3,7 +3,6 @@ package elements
 import interaction.takeMouse
 import interaction.takeScreen
 import logging.Logger
-import ocr.debugFile
 import java.awt.Color
 
 const val DROPDOWN_ITEM_HEIGHT = 18
@@ -41,4 +40,4 @@ class DropdownOptionElement(name: String) : OptionElement<Int>(name) {
 }
 
 private fun Color.isSelectedColor(): Boolean =
-    red >= 220 && green >= 220 && blue in 170..185
+    red >= 220 && green >= 220 && blue in 165..185
