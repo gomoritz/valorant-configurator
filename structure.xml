@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings-structure>
+    <simple-category name="General" button-x="720" start-y="132" window-height="837">
+        <section height="36">Accessibility</section>
+        <dropdown skip="true">Text Language</dropdown>
+        <dropdown>Enemy Highlight Color</dropdown>
+        <section>Mouse</section>
+        <slider>Sensitivity: Aim</slider>
+        <slider>Scoped Sensitivity Multiplier</slider>
+        <switch>Invert Mouse</switch>
+        <section>Map</section>
+        <switch>Rotate</switch>
+        <switch>Fixed Orientation</switch>
+        <switch>Keep Player Centered</switch>
+        <slider>Minimap Size</slider>
+        <slider>Minimap Zoom</slider>
+        <switch>Minimap Vision Cones</switch>
+        <dropdown>Show Map Region Names</dropdown>
+        <section height="75">Privacy</section>
+        <switch>Hide My Name from Players Outside My Party</switch>
+        <switch>Use Generic Names for Players Outside My Party</switch>
+        <switch>Auto-Reject Friend Requests</switch>
+        <section height="96">Other</section>
+        <switch>First Person Handedness</switch>
+        <switch>Always Show Inventory</switch>
+        <switch>Player Loadouts Always Visible</switch>
+        <switch>Cycle to Next/Prev Weapon Wraps Inventory</switch>
+        <switch>Cycle to Next/Prev Weapon Includes Spike</switch>
+        <switch>Show Mature Content</switch>
+        <switch>Show Corpses</switch>
+        <switch>Show Blood</switch>
+        <switch>Explicit Language Filter</switch>
+        <switch>Instability Indicators</switch>
+        <triple>Network Buffering</triple>
+        <switch>Show Bullet Tracers</switch>
+        <switch>Show Spectator Count</switch>
+        <switch>Use Team Color for Crosshair Color</switch>
+        <switch>Hide User Interface In Game</switch>
+        <switch>Hide First Person Arms (Observers Only)</switch>
+        <switch>Show Full Screen Blind for Observers</switch>
+        <switch>Team Colors Affect HUD for Observers</switch>
+        <switch>Show Player Keybinds on Minimap</switch>
+        <slider>Observer Free Camera Fast Speed</slider>
+        <slider>Observer Free Camera Slow Speed</slider>
+    </simple-category>
+    <tabbed-category name="Controls" button-x="840" start-y="133" first-element-margin="20" window-height="797">
+        <tab name="Movement" button-x="690" element-width="988" value-width="476">
+            <keybind>Forward</keybind>
+            <keybind>Back</keybind>
+            <keybind>Strafe Left</keybind>
+            <keybind>Strafe Right</keybind>
+            <switch>Default Movement Mode</switch>
+            <keybind>Walk</keybind>
+            <switch>Toggle Walk</switch>
+            <keybind>Jump</keybind>
+            <keybind>Crouch</keybind>
+            <switch>Toggle Crouch</switch>
+        </tab>
+        <tab name="Equipment" button-x="865" element-width="972">
+            <keybind>Fire</keybind>
+            <keybind>Alternate Fire</keybind>
+            <keybind>Toggle Zoom Level</keybind>
+            <switch>Aim Down Sights</switch>
+            <switch>Sniper Rifle Aim</switch>
+            <switch>Operator Zoom</switch>
+            <switch>Auto Re-enter Scope</switch>
+            <keybind>Reload</keybind>
+            <keybind>Equip Primary Weapon</keybind>
+            <keybind>Equip Secondary Weapon</keybind>
+            <keybind>Equip Melee Weapon</keybind>
+            <keybind>Equip Spike</keybind>
+            <keybind>Cycle to Next Weapon</keybind>
+            <keybind>Cycle to Previous Weapon</keybind>
+            <keybind>Drop Equipped Item</keybind>
+            <keybind>Equip Last Used Item</keybind>
+            <keybind>Inspect Weapon</keybind>
+            <keybind>Use Object</keybind>
+            <keybind>Use Spike (Plant or Defuse)</keybind>
+            <keybind>Use/Equip Ability: 1</keybind>
+            <keybind>Use/Equip Ability: 2</keybind>
+            <keybind>Use/Equip Ability: 3</keybind>
+            <keybind>Use/Equip Ability: Ultimate</keybind>
+            <keybind>Use Spray</keybind>
+        </tab>
+        <tab name="Communication" button-x="1050" element-width="972">
+            <section height="39">Voice Chat</section>
+            <section height="70">Pings</section>
+            <keybind>Ping (Tap) / Ping Wheel (Hold)</keybind>
+            <slider>Ping Wheel Hold Delay milliseconds</slider>
+            <keybind>Ping: Caution</keybind>
+            <keybind>Ping: Watching here</keybind>
+            <keybind>Ping: Need Support</keybind>
+            <keybind>Ping: On My Mark</keybind>
+            <section height="70">Radio Commands Menu</section>
+            <keybind>Radio Commands Menu Index</keybind>
+            <keybind>Combat Radio Commands Menu</keybind>
+            <keybind>Tactics Radio Commands Menu</keybind>
+            <keybind>Social Radio Commands Menu</keybind>
+            <keybind>Strategy Radio Commands Menu</keybind>
+            <section height="70">Radio Commands Wheel</section>
+            <keybind>Radio Command Wheel Index</keybind>
+            <keybind>Combat/Tactics Radio Commands Wheel</keybind>
+            <keybind>Social Radio Commands Wheel</keybind>
+            <keybind>Strategy Radio Commands Wheel</keybind>
+        </tab>
+        <tab name="Interface" button-x="1235" element-width="972">
+            <section height="49">General</section>
+            <keybind>Show Teammate Loadouts (Hold)</keybind>
+            <keybind>Toggle Menus</keybind>
+            <keybind>Combat Report</keybind>
+            <keybind>Agent Ability Tooltip</keybind>
+            <keybind>Open Armory</keybind>
+            <keybind>Open Map (Toggle)</keybind>
+            <keybind>Open Map (Hold)</keybind>
+            <keybind>Show Scoreboard (Hold)</keybind>
+            <keybind>Toggle Cursor</keybind>
+            <section height="70">Voting</section>
+            <keybind>Vote Option 1</keybind>
+            <keybind>Vote Option 2</keybind>
+            <keybind>Vote Option 3</keybind>
+            <keybind>Vote Option 4</keybind>
+            <section height="70">Observer</section>
+            <keybind>Toggle Free Camera</keybind>
+            <keybind>Toggle Sight Lines</keybind>
+            <keybind>All Outlines</keybind>
+            <keybind>Friendly Outlines</keybind>
+            <keybind>Enemy Outlines</keybind>
+            <keybind>No Outlines</keybind>
+            <keybind>Toggle Player Loadout Visibility</keybind>
+            <keybind>Follow Projectiles</keybind>
+            <keybind>Cycle Preset Free Camera Locations</keybind>
+            <keybind>Hold to Observe Player in Free Camera</keybind>
+            <keybind>Follow Next Observer</keybind>
+            <keybind>Follow Previous Observer</keybind>
+            <keybind>Observe Player 1</keybind>
+            <keybind>Observe Player 2</keybind>
+            <keybind>Observe Player 3</keybind>
+            <keybind>Observe Player 4</keybind>
+            <keybind>Observe Player 5</keybind>
+            <keybind>Observe Player 6</keybind>
+            <keybind>Observe Player 7</keybind>
+            <keybind>Observe Player 8</keybind>
+            <keybind>Observe Player 9</keybind>
+            <keybind>Observe Player 10</keybind>
+            <slider>Right Analog Sensitivity X</slider>
+            <slider>Right Analog Sensitivity Y</slider>
+            <slider>Right Analog Deadzone</slider>
+            <slider>Left Analog Deadzone</slider>
+            <dropdown>Gamepad Right Stick Response Curve</dropdown>
+            <switch>Gamepad Invert Look Y</switch>
+        </tab>
+    </tabbed-category>
+    <simple-category name="Crosshair" button-x="960" start-y="302" window-height="667">
+        <section height="64">General</section>
+        <dropdown>Crosshair Color</dropdown>
+        <switch>Outlines</switch>
+        <slider>Outline Opacity</slider>
+        <slider>Outline Thickness</slider>
+        <switch>Center Dot</switch>
+        <slider>Center Dot Opacity</slider>
+        <slider>Center Dot Thickness</slider>
+        <switch>Fade Crosshair With Firing Error</switch>
+        <switch>Show Spectated Player's Crosshair</switch>
+        <switch>Disable Crosshair</switch>
+        <section height="96">Inner Lines</section>
+        <switch>Show Inner Lines</switch>
+        <slider>Inner Line Opacity</slider>
+        <slider>Inner Line Length</slider>
+        <slider>Inner Line Thickness</slider>
+        <slider>Inner Line Offset</slider>
+        <switch>Inner Line Movement Error</switch>
+        <switch>Inner Line Firing Error</switch>
+        <section height="96">Outer Lines</section>
+        <slider>Outer Line Opacity</slider>
+        <slider>Outer Line Length</slider>
+        <slider>Outer Line Thickness</slider>
+        <slider>Outer Line Offset</slider>
+        <switch>Outer Line Movement Error</switch>
+        <switch>Outer Line Firing Error</switch>
+    </simple-category>
+    <tabbed-category name="Video" button-x="1080" start-y="132" window-height="797">
+        <tab name="General" button-x="740" element-width="988" value-width="476">
+            <dropdown skip="true">Display Mode</dropdown>
+            <dropdown skip="true">Resolution</dropdown>
+            <dropdown skip="true">Monitor</dropdown>
+            <switch skip="true">Aspect Ratio Method</switch>
+            <section height="94">Advanced</section>
+            <switch>Limit FPS on Battery</switch>
+            <field>Max FPS on Battery</field>
+            <switch>Limit FPS in Menus</switch>
+            <field>Max FPS in Menus</field>
+            <switch>Limit FPS in Background</switch>
+            <field>Max FPS in Background</field>
+            <switch>Limit FPS Always</switch>
+            <field>Max FPS Always</field>
+            <dropdown>NVIDIA Reflex Low Latency</dropdown>
+        </tab>
+        <tab name="Graphics Quality" button-x="960" element-width="988" value-width="476">
+            <switch>Multithreaded Rendering</switch>
+            <triple>Material Quality</triple>
+            <triple>Texture Quality</triple>
+            <triple>Detail Quality</triple>
+            <triple>UI Quality</triple>
+            <switch>Vignette</switch>
+            <switch>VSync</switch>
+            <dropdown>Anti-Aliasing</dropdown>
+            <dropdown>Anisotropic Filtering</dropdown>
+            <switch>Improve Clarity</switch>
+            <switch>[BETA] Experimental Sharpening</switch>
+            <switch>Bloom</switch>
+            <switch>Distortion</switch>
+            <switch>First Person Shadows</switch>
+        </tab>
+        <tab name="Stats" button-x="1180" element-width="988" value-width="573">
+            <quadruple>Client FPS</quadruple>
+            <quadruple>Server Tick Rate</quadruple>
+            <quadruple>Total Frame Time</quadruple>
+            <quadruple>Idle Time</quadruple>
+            <quadruple>CPU (Game) Time</quadruple>
+            <quadruple>CPU (Render) Time</quadruple>
+            <quadruple>CPU (RHI) Time</quadruple>
+            <quadruple>Network Round Trip Time</quadruple>
+            <quadruple>Packet Loss</quadruple>
+            <quadruple>Game to Render Latency</quadruple>
+            <quadruple>Game Latency</quadruple>
+            <quadruple>Render Latency</quadruple>
+        </tab>
+    </tabbed-category>
+    <tabbed-category name="Audio" button-x="1200" start-y="132" window-height="797">
+        <tab name="Sounds" button-x="790" element-width="1000" value-width="482">
+            <unlabelled-slider>Master Volume</unlabelled-slider>
+            <unlabelled-slider>Sound Effects Volume</unlabelled-slider>
+            <unlabelled-slider>Voice-over Volume</unlabelled-slider>
+            <unlabelled-slider>Video Volume</unlabelled-slider>
+            <unlabelled-slider>All Music Master Volume</unlabelled-slider>
+            <unlabelled-slider>Menu And Lobby Music Volume</unlabelled-slider>
+            <unlabelled-slider>Agent Select Music Volume</unlabelled-slider>
+            <dropdown>Speaker Configuration</dropdown>
+        </tab>
+        <tab name="Voice Chat" button-x="960" element-width="1000" value-width="482">
+            <dropdown skip="true">Output Device</dropdown>
+            <dropdown height="48" skip="true">Input Device</dropdown>
+            <unlabelled-slider can-toggle="false">Incoming Volume</unlabelled-slider>
+            <unlabelled-slider can-toggle="false">Mic Volume</unlabelled-slider>
+            <switch>Loopback Test</switch>
+            <unlabelled-slider can-toggle="false">Mic Sensitivity Threshold</unlabelled-slider>
+            <section height="60">Party</section>
+            <switch>Party Voice Chat</switch>
+            <switch>Party Voice During Custom Game</switch>
+            <switch>Party Voice Activation Mode</switch>
+            <section height="89">Team</section>
+            <switch>Team Voice Chat</switch>
+        </tab>
+        <tab name="Voice-Over" button-x="1130" element-width="1000" value-width="482"/>
+    </tabbed-category>
+</settings-structure>
