@@ -273,17 +273,41 @@ object ValorantSettingsTree {
             startY = 132,
             windowHeight = 797,
             tabs = listOf(
-                Tab(name = "Sounds", buttonX = 790, elementWidth = 1000, elements = listOf(
-                    toggleSlider("Master Volume"),
-                    toggleSlider("Sound Effects Volume"),
-                    toggleSlider("Voice-over Volume"),
-                    toggleSlider("Video Volume"),
-                    toggleSlider("All Music Master Volume"),
-                    toggleSlider("Menu And Lobby Music Volume"),
-                    toggleSlider("Agent Select Music Volume"),
+                Tab(name = "Sounds", buttonX = 790, elementWidth = 1000, valueWidth = 482, elements = listOf(
+                    unlabelledSlider("Master Volume"),
+                    unlabelledSlider("Sound Effects Volume"),
+                    unlabelledSlider("Voice-over Volume"),
+                    unlabelledSlider("Video Volume"),
+                    unlabelledSlider("All Music Master Volume"),
+                    unlabelledSlider("Menu And Lobby Music Volume"),
+                    unlabelledSlider("Agent Select Music Volume"),
                     checkbox("VOIP Ducks Music"),
                     checkbox("Mute Music When Game Window Out Of Focus"),
                     dropdown("Speaker Configuration")
+                )),
+                Tab(name = "Voice Chat", buttonX = 960, elementWidth = 1000, valueWidth = 482, elements = listOf(
+                    dropdown("Output Device").skip(),
+                    dropdown("Input Device").also { it.height = 48 }.skip(),
+                    unlabelledSlider("Incoming Volume", canToggle = false),
+                    unlabelledSlider("Mic Volume", canToggle = false),
+                    switch("Loopback Test"),
+                    unlabelledSlider("Mic Sensitivity Threshold", canToggle = false),
+
+                    section("Party", height = 60),
+                    switch("Party Voice Chat"),
+                    switch("Party Voice During Custom Game"),
+                    switch("Party Voice Activation Mode"),
+
+                    section("Team", height = 89),
+                    switch("Team Voice Chat")
+                )),
+                Tab(name = "Voice-Over", buttonX = 1130, elementWidth = 1000, valueWidth = 482, elements = listOf(
+                     checkbox("Gameplay"),
+                     checkbox("Agent Flavor"),
+                     checkbox("Tactical Callouts"),
+                     checkbox("Emotes"),
+                     checkbox("Announcer"),
+                     checkbox("VOIP Ducks Flavor VO"),
                 ))
             )
         )
@@ -301,5 +325,5 @@ private fun quadruple(name: String) = QuadrupleOptionElement(name)
 private fun keybind(name: String) = KeybindOptionElement(name)
 private fun singleKeybind(name: String) = SingleKeybindOptionElement(name)
 private fun field(name: String) = FieldOptionElement(name)
-private fun toggleSlider(name: String) = ToggleSliderElement(name)
+private fun unlabelledSlider(name: String, canToggle: Boolean = true) = UnlabelledSlider(name, canToggle )
 private fun checkbox(name: String) = CheckboxElement(name)
