@@ -29,18 +29,18 @@ object Display {
                     color = Color.GREEN
                     stroke = BasicStroke(1f)
                     drawRect(
-                        takeScreen().x + it.x + it.element.width - it.element.valueWidth,
+                        takeScreen().x + it.x,
                         takeScreen().y + it.y,
-                        it.element.valueWidth,
+                        it.element.width,
                         it.element.height
                     )
 
-                    color = Color.BLUE
-                    drawRect(
-                        takeScreen().x + it.x - 1,
-                        takeScreen().y + it.y,
-                        it.element.width - it.element.valueWidth,
-                        it.element.height
+                    color = Color(0, 255, 0, 50)
+                    fillRect(
+                        takeScreen().x + it.x + 1,
+                        takeScreen().y + it.y + 1,
+                        it.element.width - it.element.valueWidth - 2,
+                        it.element.height - 2
                     )
                 }
             }
