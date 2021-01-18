@@ -10,14 +10,14 @@ import util.toCamelCase
 import java.io.File
 import java.lang.Exception
 
-fun writeSettings(file: File) = "Write settings" {
+fun writeSettings(structure: StructureTree, file: File) = "Write settings" {
     val objectNode = mapper.readTree(file) as ObjectNode
 
     var categoryObject: ObjectNode? = null
     var tabObject: ObjectNode? = null
     var sectionObject: ObjectNode? = null
 
-    SettingsTraverser { element, x, y ->
+    SettingsTraverser(structure) { element, x, y ->
         try {
             val target = (sectionObject ?: tabObject) ?: categoryObject!!
             val value = target.get(element.name.toCamelCase())

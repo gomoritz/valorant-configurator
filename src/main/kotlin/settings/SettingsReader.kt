@@ -7,14 +7,14 @@ import util.mapper
 import util.toCamelCase
 import java.io.File
 
-fun readSettings(file: File) = "Read general settings" {
+fun readSettings(structure: StructureTree, file: File) = "Read general settings" {
     val objectNode = mapper.createObjectNode()
 
     var categoryObject: ObjectNode? = null
     var tabObject: ObjectNode? = null
     var sectionObject: ObjectNode? = null
 
-    SettingsTraverser { element, x, y ->
+    SettingsTraverser(structure) { element, x, y ->
         val key = element.name.toCamelCase()
         val target = (sectionObject ?: tabObject) ?: categoryObject!!
 

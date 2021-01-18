@@ -14,7 +14,7 @@ typealias TabHandler = (tab: Tab) -> Unit
 
 const val DISTANCE_PER_SCROLL = 100
 
-class SettingsTraverser(private val input: StructureTree, private val action: ElementAction) {
+class SettingsTraverser(private val structure: StructureTree, private val action: ElementAction) {
 
     private var sectionHandler: SectionHandler? = null
     private var categoryHandler: CategoryHandler? = null
@@ -34,7 +34,7 @@ class SettingsTraverser(private val input: StructureTree, private val action: El
         }
 
         "Traverse settings" {
-            for (category in input) {
+            for (category in structure) {
                 category.select()
                 categoryHandler?.invoke(category)
 
