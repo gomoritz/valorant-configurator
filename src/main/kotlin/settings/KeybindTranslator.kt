@@ -39,7 +39,7 @@ object KeybindTranslator {
         "left shift" -> VK_SHIFT
         "left ctrl" -> VK_CONTROL
         "escape" -> VK_ESCAPE
-        "caps lock" -> VK_CAPS_LOCK
+        "caps lock", "caps lack" -> VK_CAPS_LOCK
         "tab" -> VK_TAB
         "period" -> VK_PERIOD
         else -> null
