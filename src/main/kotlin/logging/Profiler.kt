@@ -21,8 +21,10 @@ object Profiler {
     }
 }
 
-operator fun String.invoke(action: () -> Unit) {
+operator fun <T> String.invoke(action: () -> T): T {
     Profiler.section(this)
-    action()
+    val result = action()
     Profiler.endSection()
+
+    return result
 }
