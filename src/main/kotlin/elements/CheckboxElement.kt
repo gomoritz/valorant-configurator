@@ -12,7 +12,7 @@ class CheckboxElement(name: String) : OptionElement<Boolean>(name) {
         val capture = takeScreen().capture(valueX, y, valueWidth, height)
 
         val toggleColor = Color(capture.getRGB(241, 20), true)
-        return UnlabelledSlider.isColorForEnabled(toggleColor)
+        return UnlabelledSliderOptionElement.isColorForEnabled(toggleColor)
     }
 
     override fun writeValue(x: Int, y: Int, value: Boolean) {
@@ -20,7 +20,7 @@ class CheckboxElement(name: String) : OptionElement<Boolean>(name) {
         val capture = takeScreen().capture(valueX, y, valueWidth, height)
 
         val toggleColor = Color(capture.getRGB(241, 20), true)
-        val isEnabled = UnlabelledSlider.isColorForEnabled(toggleColor)
+        val isEnabled = UnlabelledSliderOptionElement.isColorForEnabled(toggleColor)
 
         if (value != isEnabled) {
             takeMouse().move(valueX + 241, y + 20).click()
