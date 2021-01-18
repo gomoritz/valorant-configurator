@@ -1,13 +1,13 @@
 package settings
 
+import ValorantConfigurator
 import elements.*
 import logging.invoke
 import org.jdom2.input.SAXBuilder
-import java.io.File
 
 fun parseStructureFromXML(): List<Category> = "Parse structure from XML" {
-    val file = File("structure.xml")
-    val doc = SAXBuilder().build(file)
+    val stream = ValorantConfigurator::class.java.getResourceAsStream("/structure.xml")
+    val doc = SAXBuilder().build(stream)
 
     val root = doc.rootElement
     require(root.name == "settings-structure") { "File doesn't contain settings-structure node as root" }

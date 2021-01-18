@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings-structure>
+    <simple-category name="General" button-x="720" start-y="132" window-height="837">
+        <section height="36">Accessibility</section>
+        <dropdown skip="true">Text Language</dropdown>
+        <dropdown>Enemy Highlight Color</dropdown>
+        <section>Mouse</section>
+        <slider>Sensitivity: Aim</slider>
+        <slider>Scoped Sensitivity Multiplier</slider>
+        <switch>Invert Mouse</switch>
+        <section>Map</section>
+        <switch>Rotate</switch>
+        <switch>Fixed Orientation</switch>
+        <switch>Keep Player Centered</switch>
+        <slider>Minimap Size</slider>
+        <slider>Minimap Zoom</slider>
+        <switch>Minimap Vision Cones</switch>
+        <dropdown>Show Map Region Names</dropdown>
+        <section height="75">Privacy</section>
+        <switch>Hide My Name from Players Outside My Party</switch>
+        <switch>Use Generic Names for Players Outside My Party</switch>
+        <switch>Auto-Reject Friend Requests</switch>
+        <section height="96">Other</section>
+        <switch>First Person Handedness</switch>
+        <switch>Always Show Inventory</switch>
+        <switch>Player Loadouts Always Visible</switch>
+        <switch>Cycle to Next/Prev Weapon Wraps Inventory</switch>
+        <switch>Cycle to Next/Prev Weapon Includes Spike</switch>
+        <switch>Show Mature Content</switch>
+        <switch>Show Corpses</switch>
+        <switch>Show Blood</switch>
+        <switch>Explicit Language Filter</switch>
+        <switch>Instability Indicators</switch>
+        <triple>Network Buffering</triple>
+        <switch>Show Bullet Tracers</switch>
+        <switch>Show Spectator Count</switch>
+        <switch>Use Team Color for Crosshair Color</switch>
+        <switch>Hide User Interface In Game</switch>
+        <switch>Hide First Person Arms (Observers Only)</switch>
+        <switch>Show Full Screen Blind for Observers</switch>
+        <switch>Team Colors Affect HUD for Observers</switch>
+        <switch>Show Player Keybinds on Minimap</switch>
+        <slider>Observer Free Camera Fast Speed</slider>
+        <slider>Observer Free Camera Slow Speed</slider>
+    </simple-category>
+</settings-structure>

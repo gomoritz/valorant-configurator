@@ -1,6 +1,7 @@
 package ocr
 
 import net.sourceforge.tess4j.Tesseract
+import net.sourceforge.tess4j.util.LoadLibs
 import java.awt.image.BufferedImage
 import java.awt.Image
 
@@ -8,7 +9,9 @@ const val DEFAULT_CHAR_WHITELIST = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh
 const val SINGLE_CHAR_WHITELIST = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 val tesseract: Tesseract = Tesseract().apply {
-    setDatapath("src/main/resources")
+    val tessdataFolder = LoadLibs.extractTessResources("tessdata")
+    setDatapath(tessdataFolder.absolutePath)
+
     setTessVariable("user_defined_dpi", "300")
     setTessVariable("tessedit_char_whitelist", DEFAULT_CHAR_WHITELIST)
 }
