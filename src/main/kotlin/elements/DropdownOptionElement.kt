@@ -3,22 +3,23 @@ package elements
 import interaction.takeMouse
 import interaction.takeScreen
 import logging.Logger
+import ocr.debugFile
 import java.awt.Color
 
-const val DROPDOWN_TEXT_WIDTH = 440
 const val DROPDOWN_ITEM_HEIGHT = 18
 const val READABLE_DROPDOWN_ITEMS = 10
 
 class DropdownOptionElement(name: String) : OptionElement<Int>(name) {
     override fun readValue(x: Int, y: Int): Int {
         val valueX = x + width - valueWidth
+        val textWidth = valueWidth - 35
 
         takeMouse().move(valueX + valueWidth / 2, y + height / 2).click()
-        val capture = takeScreen().capture(valueX, y, DROPDOWN_TEXT_WIDTH, height + READABLE_DROPDOWN_ITEMS * DROPDOWN_ITEM_HEIGHT)
+        val capture = takeScreen().capture(valueX, y, textWidth, height + READABLE_DROPDOWN_ITEMS * DROPDOWN_ITEM_HEIGHT)
 
         for (i in 0 until READABLE_DROPDOWN_ITEMS) {
             val itemY = height + (i * DROPDOWN_ITEM_HEIGHT)
-            val color = Color(capture.getRGB(DROPDOWN_TEXT_WIDTH - 1, itemY + 1), true)
+            val color = Color(capture.getRGB(textWidth - 3, itemY + 1), true)
 
             if (color.isSelectedColor()) {
                 takeMouse().hideCursor()
@@ -40,4 +41,4 @@ class DropdownOptionElement(name: String) : OptionElement<Int>(name) {
 }
 
 private fun Color.isSelectedColor(): Boolean =
-    red >= 220 && green >= 220 && blue <= 175
+    red >= 220 && green >= 220 && blue in 170..185
