@@ -3,10 +3,9 @@ package elements
 class TabbedCategory(
     name: String,
     buttonX: Int,
-    buttonY: Int = 25,
+    buttonY: Int,
     startY: Int,
-    firstElementMargin: Int = 0,
-    elementWidth: Int = 975,
+    firstElementMargin: Int,
     windowHeight: Int,
     val tabs: List<Tab>,
 ) : Category(name, buttonX, buttonY, startY, firstElementMargin, windowHeight)

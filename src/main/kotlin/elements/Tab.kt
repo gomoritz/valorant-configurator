@@ -6,9 +6,9 @@ import logging.invoke
 class Tab(
     val name: String,
     val buttonX: Int,
-    val buttonY: Int = 90,
-    val elementWidth: Int = 975,
-    val valueWidth: Int = 468,
+    val buttonY: Int,
+    val elementWidth: Int,
+    val valueWidth: Int,
     val elements: List<Element>,
 ) {
     init {
