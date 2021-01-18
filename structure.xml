@@ -84,6 +84,8 @@
         </tab>
         <tab name="Communication" button-x="1050" element-width="972">
             <section height="39">Voice Chat</section>
+            <field>Party Voice Push To Talk Key</field>
+            <field>Team Voice Push To Talk Key</field>
             <section height="70">Pings</section>
             <keybind>Ping (Tap) / Ping Wheel (Hold)</keybind>
             <slider>Ping Wheel Hold Delay milliseconds</slider>
@@ -251,6 +253,13 @@
             <section height="89">Team</section>
             <switch>Team Voice Chat</switch>
         </tab>
-        <tab name="Voice-Over" button-x="1130" element-width="1000" value-width="482"/>
+        <tab name="Voice-Over" button-x="1130" element-width="1000" value-width="482">
+            <checkbox>Gameplay</checkbox>
+            <checkbox>Agent Flavor</checkbox>
+            <checkbox>Tactical Callouts</checkbox>
+            <checkbox>Emotes</checkbox>
+            <checkbox>Announcer</checkbox>
+            <checkbox>VOIP Ducks Flavor VO</checkbox>
+        </tab>
     </tabbed-category>
 </settings-structure>
