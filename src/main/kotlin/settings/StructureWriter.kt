@@ -7,12 +7,13 @@ import org.jdom2.output.XMLOutputter
 import java.io.File
 
 typealias XMLNode = org.jdom2.Element
+typealias StructureTree = List<Category>
 
-fun writeStructureTreeToXML() {
+fun writeStructureTreeToXML(input: StructureTree) {
     val doc = Document()
     val root = XMLNode("settings-structure")
 
-    ValorantSettingsTree.categories.forEach { category ->
+    input.forEach { category ->
         val node: XMLNode
 
         when (category) {
