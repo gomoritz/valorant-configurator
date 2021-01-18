@@ -67,6 +67,7 @@ private fun visitElements(elements: List<Element>, parent: XMLNode) {
             is UnlabelledSliderOptionElement -> "unlabelled-slider"
             is FieldOptionElement -> "field"
             is SectionElement -> "section"
+            is CheckboxElement -> "checkbox"
             else -> return@forEach
         }
 

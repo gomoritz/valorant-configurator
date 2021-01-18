@@ -75,6 +75,7 @@ private fun visitElements(parent: XMLNode): List<Element> = "Parse elements of $
             "unlabelled-slider", "u" -> UnlabelledSliderOptionElement(name, canToggle = node.getAttributeValue("can-toggle") != "false")
             "field", "f" -> FieldOptionElement(name)
             "section", "sec" -> SectionElement(name)
+            "checkbox", "cb", "c" -> CheckboxElement(name)
             else -> return@mapNotNull null
         }
 
