@@ -9,4 +9,4 @@ class TabbedCategory(
     elementWidth: Int = 975,
     windowHeight: Int,
     val tabs: List<Tab>,
-) : Category(name, buttonX, buttonY, startY, firstElementMargin, elementWidth, windowHeight)
+) : Category(name, buttonX, buttonY, startY, firstElementMargin, windowHeight)

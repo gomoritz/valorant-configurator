@@ -9,7 +9,6 @@ abstract class Category(
     val buttonY: Int,
     val startY: Int,
     val firstElementMargin: Int,
-    val elementWidth: Int = 975,
     val windowHeight: Int,
 ) {
     fun select() = "Select category <$name>" {

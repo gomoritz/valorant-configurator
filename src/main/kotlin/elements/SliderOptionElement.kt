@@ -6,11 +6,10 @@ import util.withClipboard
 import java.awt.event.KeyEvent
 
 const val SLIDER_TEXT_WIDTH = 110
-const val SLIDER_VALUE_WIDTH = 468
 
 class SliderOptionElement(name: String) : OptionElement<Double>(name) {
     override fun readValue(x: Int, y: Int): Double {
-        val valueX = x + width - SLIDER_VALUE_WIDTH
+        val valueX = x + width - valueWidth
 
         val text = takeScreen().capture(valueX, y, SLIDER_TEXT_WIDTH, height)
             .makeTextReadable()
@@ -20,7 +19,7 @@ class SliderOptionElement(name: String) : OptionElement<Double>(name) {
     }
 
     override fun writeValue(x: Int, y: Int, value: Double) {
-        val valueX = x + width - SLIDER_VALUE_WIDTH
+        val valueX = x + width - valueWidth
 
         withClipboard(value.toString()) {
             takeMouse().move(valueX + SLIDER_TEXT_WIDTH / 2, y + height / 2).click()

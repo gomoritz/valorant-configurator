@@ -6,15 +6,14 @@ import logging.Logger
 import java.awt.Color
 
 const val DROPDOWN_TEXT_WIDTH = 440
-const val DROPDOWN_VALUE_WIDTH = 468
 const val DROPDOWN_ITEM_HEIGHT = 18
 const val READABLE_DROPDOWN_ITEMS = 10
 
 class DropdownOptionElement(name: String) : OptionElement<Int>(name) {
     override fun readValue(x: Int, y: Int): Int {
-        val valueX = x + width - DROPDOWN_VALUE_WIDTH
+        val valueX = x + width - valueWidth
 
-        takeMouse().move(valueX + DROPDOWN_VALUE_WIDTH / 2, y + height / 2).click()
+        takeMouse().move(valueX + valueWidth / 2, y + height / 2).click()
         val capture = takeScreen().capture(valueX, y, DROPDOWN_TEXT_WIDTH, height + READABLE_DROPDOWN_ITEMS * DROPDOWN_ITEM_HEIGHT)
 
         for (i in 0 until READABLE_DROPDOWN_ITEMS) {
@@ -33,7 +32,7 @@ class DropdownOptionElement(name: String) : OptionElement<Int>(name) {
     }
 
     override fun writeValue(x: Int, y: Int, value: Int) {
-        val valueX = x + width - DROPDOWN_VALUE_WIDTH
+        val valueX = x + width - valueWidth
         takeMouse()
             .move(valueX + 1, y + 1).click()
             .move(valueX + 1, y + height + (value * DROPDOWN_ITEM_HEIGHT) + 1).click()

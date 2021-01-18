@@ -7,17 +7,16 @@ import java.awt.Color
 import kotlin.math.pow
 import kotlin.math.roundToInt
 
-const val TOGGLE_SLIDER_VALUE_WIDTH = 482
 const val TOGGLE_SLIDER_START = 13
 const val TOGGLE_SLIDER_WIDTH = 402
 const val TOGGLE_SLIDER_Y = 23
 
 class ToggleSliderElement(name: String) : OptionElement<Double>(name) {
     override fun readValue(x: Int, y: Int): Double {
-        val valueX = x + width - TOGGLE_SLIDER_VALUE_WIDTH
-        val capture = takeScreen().capture(valueX, y, TOGGLE_SLIDER_VALUE_WIDTH, height)
+        val valueX = x + width - valueWidth
+        val capture = takeScreen().capture(valueX, y, valueWidth, height)
 
-        val toggleColor = Color(capture.getRGB(TOGGLE_SLIDER_VALUE_WIDTH - 27, 23), true)
+        val toggleColor = Color(capture.getRGB(valueWidth - 27, 23), true)
         val isEnabled = isColorForEnabled(toggleColor)
 
         if (!isEnabled) {
@@ -36,15 +35,15 @@ class ToggleSliderElement(name: String) : OptionElement<Double>(name) {
     }
 
     override fun writeValue(x: Int, y: Int, value: Double) {
-        val valueX = x + width - TOGGLE_SLIDER_VALUE_WIDTH
+        val valueX = x + width - valueWidth
 
         if (value == -1.0) {
-            val capture = takeScreen().capture(valueX, y, TOGGLE_SLIDER_VALUE_WIDTH, height)
-            val toggleColor = Color(capture.getRGB(TOGGLE_SLIDER_VALUE_WIDTH - 27, 23), true)
+            val capture = takeScreen().capture(valueX, y, valueWidth, height)
+            val toggleColor = Color(capture.getRGB(valueWidth - 27, 23), true)
             val isEnabled = isColorForEnabled(toggleColor)
 
             if (isEnabled) {
-                takeMouse().move(valueX + TOGGLE_SLIDER_VALUE_WIDTH - 27, y + 23).click()
+                takeMouse().move(valueX + valueWidth - 27, y + 23).click()
             }
         } else {
             val targetX = (valueX + TOGGLE_SLIDER_START + (TOGGLE_SLIDER_WIDTH * value)).toInt()
