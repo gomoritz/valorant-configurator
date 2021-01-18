@@ -31,7 +31,7 @@ fun writeSettings(file: File) = "Write settings" {
                 is KeybindOptionElement -> element.writeValue(x, y, mapper.treeToValue<Keybind>(value)!!)
                 is SingleKeybindOptionElement -> element.writeValue(x, y, value.takeIf { it?.isNull == false }?.textValue())
                 is FieldOptionElement -> element.writeValue(x, y, value.doubleValue())
-                is ToggleSliderElement -> element.writeValue(x, y, value.doubleValue())
+                is UnlabelledSlider -> element.writeValue(x, y, value.doubleValue())
                 is CheckboxElement -> element.writeValue(x, y, value.booleanValue())
             }
         } catch (e: Exception) {
