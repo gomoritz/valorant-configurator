@@ -1,7 +1,7 @@
 package settings
 
 import display.Display
-import display.ElementPosition
+import display.PositionedElement
 import elements.*
 import interaction.*
 import logging.invoke
@@ -86,7 +86,7 @@ class SettingsTraverser(private val action: ElementAction) {
             }
 
             if (element !is SectionElement && element is OptionElement<*> && !element.shouldSkip) {
-                Display.highlightElement(ElementPosition(elementX, elementY - scrollOffset, element.height, element.width))
+                Display.highlightElement(PositionedElement(elementX, elementY - scrollOffset, element))
                 action(element, elementX, elementY - scrollOffset)
                 Display.highlightElement(null)
             } else if (element is SectionElement) {
