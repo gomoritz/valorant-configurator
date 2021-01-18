@@ -2,8 +2,8 @@ package elements
 
 import kotlin.properties.Delegates
 
-abstract class Element {
-    abstract val height: Int
+abstract class Element(val name: String) {
+    abstract var height: Int
     var width by Delegates.notNull<Int>()
     var valueWidth by Delegates.notNull<Int>()
 

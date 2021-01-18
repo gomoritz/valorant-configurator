@@ -1,5 +1,5 @@
 package elements
 
-class SectionElement(val name: String, override val height: Int = 66) : Element() {
+class SectionElement(name: String, override var height: Int = 66) : Element(name) {
     override fun toString(): String = name
 }
