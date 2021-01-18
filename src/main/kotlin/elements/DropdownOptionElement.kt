@@ -35,7 +35,7 @@ class DropdownOptionElement(name: String) : OptionElement<Int>(name) {
     override fun writeValue(x: Int, y: Int, value: Int) {
         val valueX = x + width - valueWidth
         takeMouse()
-            .move(valueX + 1, y + 1).click()
+            .move(valueX + 10, y + 10).click()
             .move(valueX + 1, y + height + (value * DROPDOWN_ITEM_HEIGHT) + 1).click()
     }
 }
