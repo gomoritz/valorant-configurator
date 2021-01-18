@@ -62,7 +62,7 @@ object ValorantSettingsTree {
             firstElementMargin = 20,
             windowHeight = 797,
             tabs = listOf(
-                Tab(name = "Movement", buttonX = 690, elementWidth = 988, elements = listOf(
+                Tab(name = "Movement", buttonX = 690, elementWidth = 988, valueWidth = 476, elements = listOf(
                     keybind("Forward"),
                     keybind("Back"),
                     keybind("Strafe Left"),
@@ -126,7 +126,7 @@ object ValorantSettingsTree {
                     keybind("Social Radio Commands Wheel"),
                     keybind("Strategy Radio Commands Wheel"),
                 )),
-                Tab(name = "Interface", buttonX = 1235, elements = listOf(
+                Tab(name = "Interface", buttonX = 1235, elementWidth = 972, elements = listOf(
                     section("General", height = 49),
                     keybind("Show Teammate Loadouts (Hold)"),
                     keybind("Toggle Menus"),
@@ -218,7 +218,7 @@ object ValorantSettingsTree {
             startY = 132,
             windowHeight = 797,
             tabs = listOf(
-                Tab(name = "General", buttonX = 740, elementWidth = 988, elements = listOf(
+                Tab(name = "General", buttonX = 740, elementWidth = 988, valueWidth = 476, elements = listOf(
                     dropdown("Display Mode").skip(),
                     dropdown("Resolution").skip(),
                     dropdown("Monitor").skip(),
@@ -235,7 +235,7 @@ object ValorantSettingsTree {
                     field("Max FPS Always"),
                     dropdown("NVIDIA Reflex Low Latency")
                 )),
-                Tab(name = "Graphics Quality", buttonX = 960, elementWidth = 988, elements = listOf(
+                Tab(name = "Graphics Quality", buttonX = 960, elementWidth = 988, valueWidth = 476, elements = listOf(
                     switch("Multithreaded Rendering"),
                     triple("Material Quality"),
                     triple("Texture Quality"),
@@ -251,7 +251,7 @@ object ValorantSettingsTree {
                     switch("Distortion"),
                     switch("First Person Shadows")
                 )),
-                Tab(name = "Stats", buttonX = 1180, elementWidth = 988, elements = listOf(
+                Tab(name = "Stats", buttonX = 1180, elementWidth = 988, valueWidth = 573, elements = listOf(
                     quadruple("Client FPS"),
                     quadruple("Server Tick Rate"),
                     quadruple("Total Frame Time"),
