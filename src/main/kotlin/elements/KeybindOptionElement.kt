@@ -78,12 +78,14 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
 
             if (text.toUpperCase().startsWith("F")) {
                 tesseract.setTessVariable("tessedit_char_whitelist", "F0123456789")
-                val rescannedText = increaseCharacterDistance(image).debugFile("f-rescan").readText()
+                val rescannedText = increaseCharacterDistance(image).readText()
                 tesseract.setTessVariable("tessedit_char_whitelist", DEFAULT_CHAR_WHITELIST)
 
-                if (rescannedText.length == 2 && rescannedText[0] == 'F') {
-                    Logger.debug("Performed F-rescan on $text and got $rescannedText")
+                if (rescannedText[0] == 'F') {
+                    Logger.debug("Performed F-rescan on <$text> and got <$rescannedText>")
                     text = rescannedText
+                } else {
+                    Logger.debug("Performed F-rescan on <$text> and got <$rescannedText> - not usable")
                 }
             }
 
@@ -94,7 +96,7 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
                 tesseract.setTessVariable("tessedit_char_whitelist", DEFAULT_CHAR_WHITELIST)
                 tesseract.setPageSegMode(7)
 
-                Logger.debug("Performed single-lowercase-rescan for $text and got $rescannedText")
+                Logger.debug("Performed single-lowercase-rescan for <$text> and got <$rescannedText>")
                 text = rescannedText
             }
 
@@ -130,7 +132,7 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
                     fillWidth++
                 } else if (fillStart != -1) {
                     g.drawImage(image.getSubimage(fillStart, 0, fillWidth, image.height), currentX, 0, null)
-                    currentX += fillWidth + 10
+                    currentX += fillWidth + 12
 
                     fillStart = -1
                     fillWidth = 0

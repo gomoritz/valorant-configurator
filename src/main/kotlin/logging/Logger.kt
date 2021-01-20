@@ -16,7 +16,7 @@ object Logger {
         val margin = (1..marginSize).joinToString { " " }
         val date = SimpleDateFormat("HH:mm:ss").format(System.currentTimeMillis())
 
-        val withHighlights = message.toString().replace(Regex("<(.*)>"), "${Color.CYAN_BRIGHT}$1${Color.WHITE_BRIGHT}")
+        val withHighlights = message.toString().replace(Regex("<(.*?)>"), "${Color.CYAN_BRIGHT}$1${Color.WHITE_BRIGHT}")
         val formatted = template.format(date, level.color.ansi + level.name, margin, logger, withHighlights)
 
         println(formatted)

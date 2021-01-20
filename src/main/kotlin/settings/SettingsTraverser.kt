@@ -60,12 +60,10 @@ class SettingsTraverser(private val structure: StructureTree, private val action
     }
 
     private fun traverseElements(category: Category, elements: List<Element>) {
-        "Reset scrollbar" {
-            mouse {
-                move(takeScreen().width / 2, takeScreen().height / 2)
-                wheel(-30)
-                hideCursor()
-            }
+        mouse {
+            move(takeScreen().width / 2, takeScreen().height / 2)
+            wheel(-30)
+            hideCursor()
         }
 
         tesseract.setPageSegMode(7)

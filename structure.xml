@@ -237,6 +237,8 @@
             <unlabelled-slider>All Music Master Volume</unlabelled-slider>
             <unlabelled-slider>Menu And Lobby Music Volume</unlabelled-slider>
             <unlabelled-slider>Agent Select Music Volume</unlabelled-slider>
+            <checkbox>VOIP Ducks Music</checkbox>
+            <checkbox>Mute Music When Game Window Out Of Focus</checkbox>
             <dropdown>Speaker Configuration</dropdown>
         </tab>
         <tab name="Voice Chat" button-x="960" element-width="1000" value-width="482">

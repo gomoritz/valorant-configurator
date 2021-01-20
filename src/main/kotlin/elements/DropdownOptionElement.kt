@@ -3,6 +3,7 @@ package elements
 import interaction.takeMouse
 import interaction.takeScreen
 import logging.Logger
+import ocr.debugFile
 import java.awt.Color
 
 const val DROPDOWN_ITEM_HEIGHT = 18
@@ -15,10 +16,12 @@ class DropdownOptionElement(name: String) : OptionElement<Int>(name) {
 
         takeMouse().move(valueX + valueWidth / 2, y + height / 2).click()
         val capture = takeScreen().capture(valueX, y, textWidth, height + READABLE_DROPDOWN_ITEMS * DROPDOWN_ITEM_HEIGHT)
+        val colors = mutableListOf<Color>()
 
         for (i in 0 until READABLE_DROPDOWN_ITEMS) {
             val itemY = height + (i * DROPDOWN_ITEM_HEIGHT)
             val color = Color(capture.getRGB(textWidth - 3, itemY + 1), true)
+            colors.add(color)
 
             if (color.isSelectedColor()) {
                 takeMouse().hideCursor()
@@ -26,7 +29,9 @@ class DropdownOptionElement(name: String) : OptionElement<Int>(name) {
             }
         }
 
-        Logger.warn("Cannot read value of dropdown option $name")
+        Logger.error("Cannot read value of dropdown option $name")
+        Logger.debug("Colors: " + colors.withIndex().joinToString { "(${it.index}) ${it.value}" })
+        capture.debugFile("failed-dropdown__$name")
         takeMouse().hideCursor()
         return 0
     }
