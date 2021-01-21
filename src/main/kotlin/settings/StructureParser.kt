@@ -1,12 +1,11 @@
 package settings
 
-import ValorantConfigurator
 import elements.*
 import logging.invoke
 import org.jdom2.input.SAXBuilder
 
 fun parseStructureFromXML(): List<Category> = "Parse structure from XML" {
-    val stream = ValorantConfigurator::class.java.getResourceAsStream("/structure.xml")
+    val stream = object {}.javaClass.getResourceAsStream("/structure.xml")
     val doc = SAXBuilder().build(stream)
 
     val root = doc.rootElement
