@@ -28,15 +28,20 @@ fun main(args: Array<String>) {
 
     val command = mutableListOf("cmd", "/c", "start", "cmd", "/k", javaPath, "-cp", "$libDir\\*", "ValorantConfigurator")
 
-    targetFile?.let {
+    targetFile?.also {
         command.add("--target-file")
         command.add(it)
     }
 
-    val exitCode = ProcessBuilder()
+    val process = ProcessBuilder()
         .command(command)
         .inheritIO()
         .start()
-        .waitFor()
+
+    Runtime.getRuntime().addShutdownHook(Thread {
+        process.destroyForcibly()
+    })
+
+    val exitCode = process.waitFor()
     Logger.info("Process finished with exit code <$exitCode>")
 }
