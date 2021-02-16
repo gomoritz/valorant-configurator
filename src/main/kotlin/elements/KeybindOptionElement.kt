@@ -92,15 +92,28 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
             if (text.length == 1 && text[0].isLowerCase()) {
                 tesseract.setTessVariable("tessedit_char_whitelist", SINGLE_CHAR_WHITELIST)
                 tesseract.setPageSegMode(10)
-                val rescannedText = scaleForSingleCharacter(image).readText()[0].toString()
+                val rescannedText = scaleForSingleCharacter(image).readText().getOrNull(0)?.toString()
                 tesseract.setTessVariable("tessedit_char_whitelist", DEFAULT_CHAR_WHITELIST)
                 tesseract.setPageSegMode(7)
 
-                Logger.debug("Performed single-lowercase-rescan for <$text> and got <$rescannedText>")
-                text = rescannedText
+                if (rescannedText != null) {
+                    Logger.debug("Performed single-lowercase-rescan for <$text> and got <$rescannedText>")
+                    text = rescannedText
+                }
             }
 
+            text = correctCommonMistakes(text)
+
             return text.takeUnless { it == "-" }?.toLowerCase()
+        }
+
+        private val commonMistakes = mapOf(
+            "ww" to "w",
+            "fs" to "f5"
+        )
+
+        private fun correctCommonMistakes(input: String): String {
+            return commonMistakes[input.toLowerCase()] ?: input
         }
 
         private fun increaseCharacterDistance(image: BufferedImage): BufferedImage {
