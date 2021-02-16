@@ -4,6 +4,8 @@ import java.lang.StackWalker.Option.RETAIN_CLASS_REFERENCE
 import java.text.SimpleDateFormat
 
 object Logger {
+    var isUsingColorCodes = false
+
     private val stackWalker = StackWalker.getInstance(RETAIN_CLASS_REFERENCE)
     private val template = "${Color.BLACK_BRIGHT}[${Color.WHITE}%s${Color.BLACK_BRIGHT}] " +
             "[%s${Color.BLACK_BRIGHT}] " +
@@ -17,7 +19,7 @@ object Logger {
         val date = SimpleDateFormat("HH:mm:ss").format(System.currentTimeMillis())
 
         val withHighlights = message.toString().replace(Regex("<(.*?)>"), "${Color.CYAN_BRIGHT}$1${Color.WHITE_BRIGHT}")
-        val formatted = template.format(date, level.color.ansi + level.name, margin, logger, withHighlights)
+        val formatted = template.format(date, level.color.toString() + level.name, margin, logger, withHighlights)
 
         println(formatted)
     }
