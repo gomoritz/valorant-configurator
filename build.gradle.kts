@@ -25,6 +25,28 @@ application {
 
 runtime {
     modules.set(listOf("java.logging", "java.desktop", "java.datatransfer", "java.xml"))
+
+    jpackage {
+        imageName = "Valorant Configurator"
+//        imageDir.set(File("./build/Valorant Configurator"))
+//        imageOutputDir = File("./build/Valorant Configurator")
+
+        installerType = "msi"
+        installerOptions = listOf(
+            "--name", "\"Valorant Configurator\"",
+            "--win-shortcut",
+            "--win-dir-chooser",
+            "--win-menu",
+            "--win-menu-group", "\"Inception Cloud\"",
+            "--description", "\"Copy & paste settings for Valorant\"",
+            "--vendor", "\"Inception Cloud\"",
+            "--file-associations", "FAvalo.properties"
+        )
+        imageOptions = listOf(
+            "--name", "\"Valorant Configurator\"",
+            "--icon", "icon.ico"
+        )
+    }
 }
 
 tasks.withType<KotlinCompile>() {
