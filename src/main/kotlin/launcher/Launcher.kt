@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
     Logger.debug("Java path: <$javaPath>")
     Logger.debug("Libraries directory: <$libDir>")
 
-    val command = mutableListOf("cmd", "/c", "start", "cmd", "/k", javaPath, "-cp", "$libDir\\*", "ValorantConfigurator")
+    val command = mutableListOf("cmd", "/c", "start", "cmd", "/k", "\"\"$javaPath\"", "-cp", "\"$libDir\\*\"", "ValorantConfigurator\"")
 
     targetFile?.also {
         command.add("--target-file")
