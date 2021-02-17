@@ -42,6 +42,9 @@ object KeybindTranslator {
         "caps lock", "caps lack" -> VK_CAPS_LOCK
         "tab" -> VK_TAB
         "period" -> VK_PERIOD
+        "left alt" -> VK_ALT
+        "end" -> VK_END
+        "down" -> VK_DOWN
         else -> null
     }
 
