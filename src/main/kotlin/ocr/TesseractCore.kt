@@ -5,7 +5,7 @@ import net.sourceforge.tess4j.util.LoadLibs
 import java.awt.image.BufferedImage
 import java.awt.Image
 
-const val DEFAULT_CHAR_WHITELIST = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-. "
+const val DEFAULT_CHAR_WHITELIST = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-.^ "
 const val SINGLE_CHAR_WHITELIST = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 val tesseract: Tesseract = Tesseract().apply {

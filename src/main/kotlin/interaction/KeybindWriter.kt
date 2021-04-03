@@ -7,16 +7,16 @@ import java.awt.event.KeyEvent.*
 
 object KeybindWriter {
     fun produceInput(descriptor: String): Boolean {
-        translateMouseWheel(descriptor)?.let {
-            takeMouse().wheel(it)
+        translateMouseWheel(descriptor)?.runCatching {
+            takeMouse().wheel(this)
             return true
         }
-        translateMouseButton(descriptor)?.let {
-            takeMouse().click(it)
+        translateMouseButton(descriptor)?.runCatching {
+            takeMouse().click(this)
             return true
         }
-        translateKey(descriptor)?.let {
-            takeKeyboard().type(it)
+        translateKey(descriptor)?.runCatching {
+            takeKeyboard().type(this)
             return true
         }
 
@@ -78,6 +78,10 @@ object KeybindWriter {
         "left alt" -> VK_ALT
         "end" -> VK_END
         "down" -> VK_DOWN
+        "^" -> VK_CIRCUMFLEX
+        "equals" -> VK_EQUALS
+        "left bracket" -> VK_OPEN_BRACKET
+        "right bracket" -> VK_CLOSE_BRACKET
         else -> null
     }
 
