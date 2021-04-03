@@ -78,14 +78,14 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
 
             if (text.toUpperCase().startsWith("F")) {
                 tesseract.setTessVariable("tessedit_char_whitelist", "F0123456789")
-                val rescannedText = increaseCharacterDistance(image).readText()
+                val rescannedText = increaseCharacterDistance(image).debugFile("f-rescan", false).readText()
                 tesseract.setTessVariable("tessedit_char_whitelist", DEFAULT_CHAR_WHITELIST)
 
-                if (rescannedText[0] == 'F') {
+                if (rescannedText[0] == 'F' && rescannedText.length > 1) {
                     Logger.debug("Performed F-rescan on <$text> and got <$rescannedText>")
                     text = rescannedText
                 } else {
-                    Logger.debug("Performed F-rescan on <$text> and got <$rescannedText> - not usable")
+                    Logger.debug("Performed F-rescan on <$text> and got <$rescannedText> - not using")
                 }
             }
 
@@ -109,7 +109,8 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
 
         private val commonMistakes = mapOf(
             "ww" to "w",
-            "fs" to "f5"
+            "fs" to "f5",
+            "fi" to "f1"
         )
 
         private fun correctCommonMistakes(input: String): String {
@@ -123,11 +124,11 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
             g.color = Color.WHITE
             g.fillRect(0, 0, new.width, new.height)
 
-            var currentX = 5
+            var currentX = 25
             var fillStart = -1
             var fillWidth = 0
 
-            outer@for (x in 0 until image.width) {
+            for (x in 0 until image.width) {
                 var isColumnFilled = false
 
                 inner@for (y in 0 until image.height) {
@@ -145,7 +146,7 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
                     fillWidth++
                 } else if (fillStart != -1) {
                     g.drawImage(image.getSubimage(fillStart, 0, fillWidth, image.height), currentX, 0, null)
-                    currentX += fillWidth + 12
+                    currentX += fillWidth + 4
 
                     fillStart = -1
                     fillWidth = 0
