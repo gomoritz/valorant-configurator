@@ -110,7 +110,8 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
         private val commonMistakes = mapOf(
             "ww" to "w",
             "fs" to "f5",
-            "fi" to "f1"
+            "fi" to "f1",
+            "ft" to "f7"
         )
 
         private fun correctCommonMistakes(input: String): String {
