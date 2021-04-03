@@ -67,6 +67,7 @@ private fun visitElements(parent: XMLNode): List<Element> = "Parse elements of $
         val element = when(node.name) {
             "dropdown", "drop", "d" -> DropdownOptionElement(name)
             "keybind", "key", "k" -> KeybindOptionElement(name)
+            "single-keybind", "sk" -> SingleKeybindOptionElement(name)
             "quadruple", "quad", "q" -> QuadrupleOptionElement(name)
             "slider", "sl" -> SliderOptionElement(name)
             "switch", "sw" -> SwitchOptionElement(name)

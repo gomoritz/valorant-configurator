@@ -87,8 +87,8 @@
         </tab>
         <tab name="Communication" button-x="1050" element-width="972">
             <section height="39">Voice Chat</section>
-            <field>Party Voice Push To Talk Key</field>
-            <field>Team Voice Push To Talk Key</field>
+            <single-keybind>Party Voice Push To Talk Key</single-keybind>
+            <single-keybind>Team Voice Push To Talk Key</single-keybind>
             <section height="70">Pings</section>
             <keybind>Ping (Tap) / Ping Wheel (Hold)</keybind>
             <slider>Ping Wheel Hold Delay milliseconds</slider>
