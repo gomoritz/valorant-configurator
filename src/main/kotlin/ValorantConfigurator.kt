@@ -5,6 +5,7 @@ import cli.Mode
 import com.xenomachina.argparser.ArgParser
 import com.xenomachina.argparser.mainBody
 import display.Display
+import interaction.EmergencyBrake
 import logging.Logger
 import settings.*
 import kotlin.system.exitProcess
@@ -18,6 +19,7 @@ fun main(args: Array<String>) = mainBody<Unit> {
         }
 
         val structure = parseStructureFromXML()
+        EmergencyBrake.init()
         Display.init()
 
         when (options.mode) {
