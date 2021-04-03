@@ -20,8 +20,6 @@ object Mouse {
 
     fun click(button: MouseButton = MouseButton.LEFT) = press(button).release(button)
 
-    fun doubleClick(button: MouseButton = MouseButton.LEFT) = click().click()
-
     fun hideCursor() {
         (0..20 step 4).forEach { move(it, ValorantScreen.height - 5) }
         click()
