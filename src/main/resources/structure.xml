@@ -240,7 +240,7 @@
             <unlabelled-slider>All Music Master Volume</unlabelled-slider>
             <unlabelled-slider>Menu And Lobby Music Volume</unlabelled-slider>
             <unlabelled-slider>Agent Select Music Volume</unlabelled-slider>
-            <checkbox>VOIP Ducks Music</checkbox>+
+            <checkbox>VOIP Ducks Music</checkbox>
             <checkbox>Mute Music When Game Window Out Of Focus</checkbox>
             <dropdown>Speaker Configuration</dropdown>
             <checkbox>Enable HRTF</checkbox>
