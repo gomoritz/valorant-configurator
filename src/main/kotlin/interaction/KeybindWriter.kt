@@ -1,12 +1,30 @@
-package settings
+package interaction
 
-import interaction.MouseButton
+import logging.Logger
 import java.awt.event.InputEvent
 import java.awt.event.KeyEvent
 import java.awt.event.KeyEvent.*
 
-object KeybindTranslator {
-    fun translateKey(descriptor: String): Int? {
+object KeybindWriter {
+    fun produceInput(descriptor: String): Boolean {
+        translateMouseWheel(descriptor)?.let {
+            takeMouse().wheel(it)
+            return true
+        }
+        translateMouseButton(descriptor)?.let {
+            takeMouse().click(it)
+            return true
+        }
+        translateKey(descriptor)?.let {
+            takeKeyboard().type(it)
+            return true
+        }
+
+        Logger.warn("Could not produce input for descriptor <$descriptor>")
+        return false
+    }
+
+    private fun translateKey(descriptor: String): Int? {
         if (descriptor.isSingleLetterOrNumber()) {
             return findKeyEventConstant("VK_${descriptor[0].toUpperCase()}")
         }
@@ -22,7 +40,7 @@ object KeybindTranslator {
         return translateSpecialKey(descriptor)
     }
 
-    fun translateMouseButton(descriptor: String): MouseButton? {
+    private fun translateMouseButton(descriptor: String): MouseButton? {
         when (descriptor) {
             "left mouse button" -> return MouseButton.LEFT
             "right mouse button" -> return MouseButton.RIGHT
@@ -43,7 +61,7 @@ object KeybindTranslator {
         }
     }
 
-    fun translateMouseWheel(descriptor: String): Int? = when (descriptor) {
+    private fun translateMouseWheel(descriptor: String): Int? = when (descriptor) {
         "mouse wheel up" -> -1
         "mouse wheel down" -> 1
         else -> null
