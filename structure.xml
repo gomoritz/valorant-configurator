@@ -4,6 +4,7 @@
         <section height="36">Accessibility</section>
         <dropdown skip="true">Text Language</dropdown>
         <dropdown>Enemy Highlight Color</dropdown>
+        <switch>Tactical Callouts in Chat</switch>
         <section>Mouse</section>
         <slider>Sensitivity: Aim</slider>
         <slider>Scoped Sensitivity Multiplier</slider>
@@ -55,6 +56,8 @@
             <keybind>Jump</keybind>
             <keybind>Crouch</keybind>
             <switch>Toggle Crouch</switch>
+            <keybind>Fly Up</keybind>
+            <keybind>Fly Down</keybind>
         </tab>
         <tab name="Equipment" button-x="865" element-width="972">
             <keybind>Fire</keybind>
@@ -211,7 +214,7 @@
             <switch>[BETA] Experimental Sharpening</switch>
             <switch>Bloom</switch>
             <switch>Distortion</switch>
-            <switch>First Person Shadows</switch>
+            <switch>Cast Shadows</switch>
         </tab>
         <tab name="Stats" button-x="1180" element-width="988" value-width="573">
             <quadruple>Client FPS</quadruple>
@@ -237,9 +240,10 @@
             <unlabelled-slider>All Music Master Volume</unlabelled-slider>
             <unlabelled-slider>Menu And Lobby Music Volume</unlabelled-slider>
             <unlabelled-slider>Agent Select Music Volume</unlabelled-slider>
-            <checkbox>VOIP Ducks Music</checkbox>
+            <checkbox>VOIP Ducks Music</checkbox>+
             <checkbox>Mute Music When Game Window Out Of Focus</checkbox>
             <dropdown>Speaker Configuration</dropdown>
+            <checkbox>Enable HRTF</checkbox>
         </tab>
         <tab name="Voice Chat" button-x="960" element-width="1000" value-width="482">
             <dropdown skip="true">Output Device</dropdown>
