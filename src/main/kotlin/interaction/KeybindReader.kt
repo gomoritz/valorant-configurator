@@ -11,7 +11,8 @@ object KeybindReader {
         "ww" to "w",
         "fs" to "f5",
         "fi" to "f1",
-        "ft" to "f7"
+        "ft" to "f7",
+        "rp" to "f7"
     )
 
     fun readKeybind(imageInput: BufferedImage): String? {

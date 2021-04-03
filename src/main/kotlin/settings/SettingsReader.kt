@@ -19,6 +19,7 @@ fun readSettings(structure: StructureTree, file: File) = "Read general settings"
         val target = (sectionObject ?: tabObject) ?: categoryObject!!
 
         when (val value = element.readValue(x, y)) {
+            null -> target.putPOJO(key, null)
             is Double -> target.put(key, value)
             is Int -> target.put(key, value)
             is Boolean -> target.put(key, value)
