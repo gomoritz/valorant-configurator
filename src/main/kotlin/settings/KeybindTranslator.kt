@@ -1,6 +1,7 @@
 package settings
 
 import interaction.MouseButton
+import java.awt.event.InputEvent
 import java.awt.event.KeyEvent
 import java.awt.event.KeyEvent.*
 
@@ -21,11 +22,25 @@ object KeybindTranslator {
         return translateSpecialKey(descriptor)
     }
 
-    fun translateMouseButton(descriptor: String): MouseButton? = when (descriptor) {
-        "left mouse button" -> MouseButton.LEFT
-        "right mouse button" -> MouseButton.RIGHT
-        "middle mouse button" -> MouseButton.MIDDLE
-        else -> null
+    fun translateMouseButton(descriptor: String): MouseButton? {
+        when (descriptor) {
+            "left mouse button" -> return MouseButton.LEFT
+            "right mouse button" -> return MouseButton.RIGHT
+            "middle mouse button" -> return MouseButton.MIDDLE
+            else -> {
+                val prefix = "thumb mouse button"
+                val thumbButtonIndex = when {
+                    descriptor == prefix -> 1
+                    descriptor.startsWith("$prefix ") -> descriptor.removePrefix("$prefix ").toIntOrNull()
+                    else -> null
+                }
+
+                return if (thumbButtonIndex != null) {
+                    val mask = InputEvent.getMaskForButton(thumbButtonIndex + 3)
+                    MouseButton.ThumbButton(mask)
+                } else null
+            }
+        }
     }
 
     fun translateMouseWheel(descriptor: String): Int? = when (descriptor) {

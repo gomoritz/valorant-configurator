@@ -2,8 +2,9 @@ package interaction
 
 import java.awt.event.InputEvent
 
-enum class MouseButton(internal val mask: Int) {
-    LEFT(InputEvent.BUTTON1_DOWN_MASK),
-    RIGHT(InputEvent.BUTTON3_DOWN_MASK),
-    MIDDLE(InputEvent.BUTTON2_DOWN_MASK),
+sealed class MouseButton(internal val mask: Int) {
+    object LEFT : MouseButton(InputEvent.BUTTON1_DOWN_MASK)
+    object RIGHT : MouseButton(InputEvent.BUTTON3_DOWN_MASK)
+    object MIDDLE : MouseButton(InputEvent.BUTTON2_DOWN_MASK)
+    class ThumbButton(mask: Int) : MouseButton(mask)
 }
