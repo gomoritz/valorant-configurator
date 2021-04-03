@@ -4,8 +4,6 @@ import java.lang.StackWalker.Option.RETAIN_CLASS_REFERENCE
 import java.text.SimpleDateFormat
 
 object Logger {
-    var isUsingColorCodes = false
-
     private val stackWalker = StackWalker.getInstance(RETAIN_CLASS_REFERENCE)
     private val template = "${Color.BLACK_BRIGHT}[${Color.WHITE}%s${Color.BLACK_BRIGHT}] " +
             "[%s${Color.BLACK_BRIGHT}] " +

@@ -73,5 +73,5 @@ enum class Color(val ansi: String) {
     CYAN_BACKGROUND_BRIGHT("\u001b[0;106m"), // CYAN
     WHITE_BACKGROUND_BRIGHT("\u001b[0;107m"); // WHITE
 
-    override fun toString(): String = if (Logger.isUsingColorCodes) ansi else ""
+    override fun toString(): String = ansi
 }
