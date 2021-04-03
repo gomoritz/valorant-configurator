@@ -6,13 +6,12 @@ import java.io.File
 import java.util.*
 import javax.imageio.ImageIO
 
-private val temporaryDirectory = File("temp").apply {
-    mkdirs()
-}
+private val temporaryDirectory = File("temp")
 
 fun <T> BufferedImage.useTemporaryFile(action: (File) -> T): T {
     val uuid = UUID.randomUUID().toString()
     val fileName = "$uuid.png"
+    temporaryDirectory.mkdirs()
     val file = File(temporaryDirectory, fileName)
 
     file.createNewFile()
@@ -28,14 +27,19 @@ fun <T> BufferedImage.useTemporaryFile(action: (File) -> T): T {
 }
 
 fun BufferedImage.debugFile(label: String, replacePrevious: Boolean = true) = apply {
-    val fileName = if (!replacePrevious) {
-        val uuid = UUID.randomUUID().toString().take(6)
-        "${label}__$uuid.png"
-    } else {
-        "$label.png"
-    }.replace(": ", "_").replace("/", "_")
-    val file = File(temporaryDirectory, fileName)
+    try {
+        val fileName = if (!replacePrevious) {
+            val uuid = UUID.randomUUID().toString().take(6)
+            "${label}__$uuid.png"
+        } else {
+            "$label.png"
+        }.replace(": ", "_").replace("/", "_")
+        temporaryDirectory.mkdirs()
+        val file = File(temporaryDirectory, fileName)
 
-    ImageIO.write(this, "png", file)
-    Logger.debug("Created debug file ${file.absolutePath} for $label")
+        ImageIO.write(this, "png", file)
+        Logger.debug("Created debug file ${file.absolutePath} for $label")
+    } catch (e: Exception) {
+        Logger.error("Failed to create debug file $label")
+    }
 }
