@@ -78,7 +78,7 @@ class KeybindOptionElement(name: String) : OptionElement<Keybind>(name) {
 
             if (text.toUpperCase().startsWith("F")) {
                 tesseract.setTessVariable("tessedit_char_whitelist", "F0123456789")
-                val rescannedText = increaseCharacterDistance(image).debugFile("f-rescan", false).readText()
+                val rescannedText = increaseCharacterDistance(image).readText()
                 tesseract.setTessVariable("tessedit_char_whitelist", DEFAULT_CHAR_WHITELIST)
 
                 if (rescannedText[0] == 'F' && rescannedText.length > 1) {
