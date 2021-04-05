@@ -30,7 +30,7 @@ object Display {
                 renderValorantBB()
 
                 positionedElement?.let {
-                    color = Color.GREEN
+                    color = HIGHLIGHT_COLOR
                     stroke = BasicStroke(1f)
                     drawRect(
                         screen.x + it.x,
@@ -39,7 +39,7 @@ object Display {
                         it.element.height
                     )
 
-                    color = Color(0, 255, 0, 50)
+                    color = Color(HIGHLIGHT_COLOR.red, HIGHLIGHT_COLOR.green, HIGHLIGHT_COLOR.blue, 50)
                     fillRect(
                         screen.x + it.x + 1,
                         screen.y + it.y + 1,
@@ -48,10 +48,10 @@ object Display {
                     )
                 }
 
-                color = Color(0, 0, 100)
+                color = PROGRESS_COLOR.darker()
                 fillRect(screen.x, screen.y + screen.height - 3, screen.width, 3)
 
-                color = Color(0, 0, 255)
+                color = PROGRESS_COLOR
                 fillRect(screen.x, screen.y + screen.height - 3, (screen.width * progress).toInt(), 3)
             }
         }.apply {
