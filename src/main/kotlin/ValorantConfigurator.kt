@@ -22,9 +22,9 @@ fun main(args: Array<String>) = mainBody<Unit> {
         if (options.focus) {
             if (WindowsHook.focusValorant()) {
                 Thread.sleep(1_000)
-                Logger.info("Focused Valorant client using the Windows API")
+                Logger.info("Focused Valorant client using the Windows API", "ValorantConfigurator")
             } else {
-                Logger.error("Couldn't focus the Valorant client!")
+                Logger.error("Couldn't focus the Valorant client!", "ValorantConfigurator")
                 exitProcess(3)
             }
         }

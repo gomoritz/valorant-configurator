@@ -14,10 +14,11 @@ object Logger {
             "${Color.WHITE_BRIGHT}%s"
     private const val templateWithoutColors = "[%s] [%s] %s%s - %s"
 
-    private fun log(level: Level, message: Any?, logger: String) {
+    private fun log(level: Level, message: Any?, _logger: String) {
         val marginSize = 5 - level.name.length
         val margin = (1..marginSize).joinToString { " " }
         val date = SimpleDateFormat("HH:mm:ss").format(System.currentTimeMillis())
+        val logger = _logger.takeIf { it.isNotBlank() } ?: "<unknown>"
 
         val withHighlights = message.toString().replace(Regex("<(.*?)>"), "${Color.CYAN_BRIGHT}$1${Color.WHITE_BRIGHT}")
         val formatted = template.format(date, level.color.toString() + level.name, margin, logger, withHighlights)
