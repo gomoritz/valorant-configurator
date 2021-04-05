@@ -20,6 +20,11 @@ class SettingsTraverser(private val structure: StructureTree, private val action
     private var categoryHandler: CategoryHandler? = null
     private var tabHandler: TabHandler? = null
 
+    companion object {
+        var totalElements = -1
+            private set
+    }
+
     fun start() {
         "Open settings" {
             val screen = takeScreen()
@@ -30,6 +35,14 @@ class SettingsTraverser(private val structure: StructureTree, private val action
                 click()
 
                 hideCursor()
+            }
+        }
+
+        totalElements = structure.sumBy {
+            when (it) {
+                is SimpleCategory -> it.elements.size
+                is TabbedCategory -> it.tabs.sumBy { tab -> tab.elements.size }
+                else -> 0
             }
         }
 
@@ -90,6 +103,7 @@ class SettingsTraverser(private val structure: StructureTree, private val action
             }
 
             elementY += element.height
+            Display.elementIndex++
         }
 
         Display.highlightElement(null)
