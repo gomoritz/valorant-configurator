@@ -12,11 +12,16 @@ class CommandLineOptions(parser: ArgParser) {
     val mode by parser.mapping(
         "--read" to Mode.READ,
         "--write" to Mode.WRITE,
-        help = "The action to be executed by the configurator"
+        help = "The action to be executed by the configurator."
     )
 
     val instant by parser.flagging(
         "--instant", "-I",
-        help = "Whether to skip the initial delay and start the configurator instantly"
+        help = "Whether to skip the initial delay and start the configurator instantly."
+    )
+
+    val focus by parser.flagging(
+        "--focus", "-F",
+        help = "Whether to attempt to focus the Valorant game before starting the configurator. Only works on Windows systems!"
     )
 }
