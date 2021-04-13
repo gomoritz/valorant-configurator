@@ -24,4 +24,9 @@ class CommandLineOptions(parser: ArgParser) {
         "--focus", "-F",
         help = "Whether to attempt to focus the Valorant game before starting the configurator. Only works on Windows systems!"
     )
+
+    val noOverlay by parser.flagging(
+        "--no-overlay", "-O",
+        help = "Whether to hide the overlay that indicates the traversing progress."
+    )
 }

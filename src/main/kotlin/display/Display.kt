@@ -14,7 +14,9 @@ object Display {
     var elementIndex: Int = -1
     var progress: Double = 0.0
 
-    fun init() {
+    fun init(noOverlay: Boolean) {
+        if (noOverlay) return
+
         window = Window(null).apply {
             isAutoRequestFocus = true
             isAlwaysOnTop = true
@@ -65,6 +67,7 @@ object Display {
     }
 
     fun highlightElement(pos: PositionedElement?) {
+        if (!::window.isInitialized) return
         this.positionedElement = pos
 
         if (pos != null) {

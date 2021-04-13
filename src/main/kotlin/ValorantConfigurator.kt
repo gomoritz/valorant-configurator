@@ -31,7 +31,7 @@ fun main(args: Array<String>) = mainBody<Unit> {
 
         val structure = parseStructureFromXML()
         EmergencyBrake.init()
-        Display.init()
+        Display.init(options.noOverlay)
 
         when (options.mode) {
             Mode.READ -> readSettings(structure, options.configurationFile)
